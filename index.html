@@ -1675,7 +1675,7 @@ span{
       </div>
     </div>
 
-    <form action="contact.php" method="POST" class="contact-form" id="contactForm">
+    <form action="https://yuno.infinityfree.me/contact.php" method="POST" class="contact-form" id="contactForm">
   <div class="input-box">
     <input type="text" name="name" required>
     <label>Name</label>
@@ -1734,7 +1734,7 @@ span{
     <h2>Let's Work Together</h2>
     <p>Select what kind of project you want me to work on 👇</p>
 
-    <form id="projectForm">
+   <form action="https://yuno.infinityfree.me/work_request.php" method="POST" id="projectForm">
       <div class="input-group">
         <label for="name">Your Name</label>
         <input type="text" id="name" name="name" placeholder="Enter your name" required>
@@ -2131,6 +2131,7 @@ const [post] = await sql`SELECT * FROM posts WHERE id = ${postId}`;
     </script>
 </body>
 </html>
+
 
 
 
