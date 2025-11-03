@@ -1983,9 +1983,26 @@ window.addEventListener('click', (e) => {
 // optional: form submission alert
 document.getElementById("projectForm").addEventListener("submit", function(e){
   e.preventDefault();
-  alert("✅ Your project request has been submitted successfully!");
-  workFormContainer.style.display = 'none';
+
+  const formData = new FormData(this);
+
+  fetch("work_request.php", {
+    method: "POST",
+    body: formData
+  })
+  .then(res => res.text())
+  .then(data => {
+    if (data.trim() === "success") {
+      alert("✅ Your project request has been submitted successfully!");
+      this.reset();
+      workFormContainer.style.display = 'none';
+    } else {
+      alert("❌ Something went wrong. Try again!");
+    }
+  })
+  .catch(err => console.error(err));
 });
+
 </script>
 
     <!-- ====== AI CHATBOT ICON & POPUP ====== -->
@@ -2112,6 +2129,7 @@ menuIcon.addEventListener("click", () => {
     </script>
 </body>
 </html>
+
 
 
 
